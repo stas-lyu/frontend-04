@@ -3,8 +3,6 @@ const currentYear = 2021;
 function createNewUser() {
     let userName = prompt('Ваше имя');
     let userSurname = prompt('Ваша фамилия');
-    // let object = {};
-    // let object2 = new Object();
     let newUser = {
         setFirstName: function () {
             newUser.firstName = userName
@@ -18,7 +16,7 @@ function createNewUser() {
             return newUser
         },
         getLogin: function () {
-           return console.log(newUser.firstName[0].toLowerCase() + newUser.lastName)
+            return console.log(newUser.firstName[0].toLowerCase() + newUser.lastName)
         },
         setBirthday: function () {
             let day = prompt('Укажите дату рождения');
@@ -28,14 +26,20 @@ function createNewUser() {
         },
         getAge: function () {
             let birthdayYear = newUser.birthday;
-            let test = birthdayYear.split('.');
-            console.log(test);
+            let birthdayArray = birthdayYear.split('.');
+            let userYear = birthdayArray[birthdayArray.length - 1];
+            newUser.userYear = userYear;
+            return newUser;
+        },
+        getPassword: function () {
+            return console.log(`${userName[0].toUpperCase()} ${userSurname.toLowerCase()} ${newUser.userYear}`);
         }
     }
     // newUser.getFullName();
     // newUser.getLogin();
     newUser.setBirthday();
     newUser.getAge();
+    newUser.getPassword();
     return newUser
 }
 
