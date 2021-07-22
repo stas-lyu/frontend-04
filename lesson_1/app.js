@@ -1,3 +1,5 @@
+const currentYear = 2021;
+
 function createNewUser() {
     let userName = prompt('Ваше имя');
     let userSurname = prompt('Ваша фамилия');
@@ -10,13 +12,30 @@ function createNewUser() {
         setLastName: function () {
             newUser.lastName = userSurname
         },
-        getLogin: function () {
+        getFullName: function () {
             newUser.setFirstName()
             newUser.setLastName()
             return newUser
         },
+        getLogin: function () {
+           return console.log(newUser.firstName[0].toLowerCase() + newUser.lastName)
+        },
+        setBirthday: function () {
+            let day = prompt('Укажите дату рождения');
+            let mon = prompt('Укажите месяц рождения');
+            let year = prompt('укажите год рождения');
+            return console.log(newUser.birthday = `${day}.${mon}.${year}`);
+        },
+        getAge: function () {
+            let birthdayYear = newUser.birthday;
+            let test = birthdayYear.split('.');
+            console.log(test);
+        }
     }
-    newUser.getLogin()
+    // newUser.getFullName();
+    // newUser.getLogin();
+    newUser.setBirthday();
+    newUser.getAge();
     return newUser
 }
 
